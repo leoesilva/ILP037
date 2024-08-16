@@ -5,12 +5,16 @@ public class Pais {
     private final String nome;
     private final int qtdSoldados;
     private final boolean temArmasNucleares;
+    private final double capacidadeEconomica;
+    private final int credibilidade;
     private Estrategia estrategia;
 
-    public Pais(String nome, int qtdSoldados, boolean temArmasNucleares) {
+    public Pais(String nome, int qtdSoldados, boolean temArmasNucleares, double capacidadeEconomica, int credibilidade) {
         this.nome = nome;
         this.qtdSoldados = qtdSoldados;
         this.temArmasNucleares = temArmasNucleares;
+        this.capacidadeEconomica = capacidadeEconomica;
+        this.credibilidade = credibilidade;
     }
 
     public String getNome() {
@@ -25,6 +29,14 @@ public class Pais {
         return temArmasNucleares;
     }
 
+    public double getCapacidadeEconomica() {
+        return capacidadeEconomica;
+    }
+
+    public int getCredibilidade() {
+        return credibilidade;
+    }
+
     public Estrategia getEstrategia() {
         return estrategia;
     }
@@ -33,9 +45,8 @@ public class Pais {
         this.estrategia = estrategia;
     }
 
-    public void declararGuerra(Pais inimigo) {
-        this.estrategia.atacar(inimigo);
-        this.estrategia.concluir(inimigo);
+    public void declararGuerra(Pais adversario) {
+        this.estrategia.agir(adversario);        
     }
 
 }
