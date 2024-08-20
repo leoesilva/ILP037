@@ -6,7 +6,7 @@ public class Pais {
     private final int qtdSoldados;
     private final boolean temArmasNucleares;
     private final double capacidadeEconomica;
-    private final int credibilidade;
+    private int credibilidade;
     private Estrategia estrategia;
 
     public Pais(String nome, int qtdSoldados, boolean temArmasNucleares, double capacidadeEconomica, int credibilidade) {
@@ -37,6 +37,10 @@ public class Pais {
         return credibilidade;
     }
 
+    public void setCredibilidade (int credibilidade) {
+        this.credibilidade = credibilidade;
+    }
+
     public Estrategia getEstrategia() {
         return estrategia;
     }
@@ -46,7 +50,7 @@ public class Pais {
     }
 
     public void declararGuerra(Pais adversario) {
-        this.estrategia.agir(adversario);        
+        this.estrategia.agir(this, adversario);        
     }
 
 }
